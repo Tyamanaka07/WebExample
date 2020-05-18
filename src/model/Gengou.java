@@ -27,20 +27,23 @@ public class Gengou {
 	}
 
 	public int getNen() {
-		switch(this.gengou){
-		case 1:
-			return 1926 + nen - 1;
-		case 2:
-			return 1989 + nen  - 1;
-		case 3:
-			return 2019 + nen - 1;
-		default:
-			return 0;
-		}
+		return this.nen;
 	}
 
 	public void setNen(int nen) {
 		this.nen = nen;
+	}
+	public int getSeireki(){
+		switch(gengou){
+			case 1:
+				return 1926 + nen - 1;
+			case 2:
+				return 1989 + nen  - 1;
+			case 3:
+				return 2019 + nen- - 1;
+			default:
+				return 0;
+		}
 	}
 
 

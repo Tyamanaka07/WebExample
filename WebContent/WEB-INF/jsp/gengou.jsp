@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<p>西暦${gengou.nen}年</p>
+<p>${gengou.gengou }${gengou.nen }年は、西暦${gengou.seireki}年</p>
 
 
 </body>
