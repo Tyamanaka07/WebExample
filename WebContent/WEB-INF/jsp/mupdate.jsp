@@ -21,8 +21,6 @@
 <h1>削除</h1>
 <form action="mdel" method = "post">
 <input type = "hidden" name = "mid" value = "${member.mid}">
-<input type = "hidden" name = "name" value = "${member.name}" >
-<input type = "hidden" name = "adr" value = "${member.adr}">
 <input type = "submit" value = "削除">
 </form>
 
