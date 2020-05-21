@@ -1,0 +1,35 @@
+@startuml
+title 掲示板
+
+actor ユーザー
+participant top.jsp
+participant ThreadAccessServlet
+participant watch.jsp
+participant ThreadPostServlet
+participant post.jsp
+participant ThreadDelServlet
+participant delete.jsp
+database ThreadDAO
+ユーザー -> top.jsp:リンク
+top.jsp -> ThreadAccessServlet:doget()
+ThreadAccessServlet -> watch.jsp:フォワード
+opt
+watch.jsp -> ThreadPostServlet:doget()
+ThreadPostServlet -> ThreadDAO:tid
+ThreadDAO --> ThreadPostServlet:insert(t)
+ThreadPostServlet -> post.jsp:フォワード
+post.jsp -> ユーザー:入力フォーム表示
+ユーザー -> post.jsp:データ入力
+post.jsp --> watch.jsp:リダイレクト
+end
+opt
+watch.jsp -> ThreadDelServlet:doget()
+ThreadDelServlet -> ThreadDAO:tid
+ThreadDAO --> ThreadDelServlet:delete()
+ThreadDelServlet -> delete.jsp:フォワード
+delete.jsp -> ユーザー:確認
+ユーザー -> delete.jsp:承認
+delete.jsp -> watch.jsp:リダイレクト
+end
+watch.jsp --> ユーザー:スレッド一覧表示
+@enduml

@@ -1,0 +1,16 @@
+@startuml
+title 掲示板_状態遷移図
+watch : スレッド一覧
+post : GET 追加画面表示\nPOST 投稿
+delete : GET 削除確認画面\nPOST削除
+
+[*] -r-> access
+access --> watch:リンク
+watch --> post:リンク tid
+post --> watch
+post --> post:POST\ntid\nname\nhonbun\nday
+watch --> delete:リンク tid
+delete --> watch:リンク
+delete --> delete:POST\ntid
+
+@enduml

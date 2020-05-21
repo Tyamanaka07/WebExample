@@ -1,0 +1,32 @@
+@startuml
+package Servlet{
+		class ThreadAccessServlet{
+			+doget()
+		}
+		class ThreadDelServlet{
+			+doget()
+			+dopost()
+		}
+		class ThreadInsertServlet{
+			+doget()
+			+dopost()
+		}
+}
+package model{
+		class Thread{
+			-tid : int
+			-name : varchar
+			-honbun : text
+			-day : DATETIME
+			Thread(tid,name,honbun,day)
+		}
+		class ThreadDAO{
+			+findAll();
+			+findByThread(int tid)
+			+insert(thread t)
+			+delete(int tid)
+	}
+Thread -* ThreadDAO
+ThreadDelServlet ..> ThreadDAO
+ThreadInsertServlet ..> ThreadDAO
+@enduml

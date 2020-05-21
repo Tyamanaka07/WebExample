@@ -1,0 +1,8 @@
+スキーマ名 : keijiban
+テーブル名 : thread
+列名 :	tid スレッドID	int
+						primary key
+						auto_increment
+		name 	名前		varchar(45)
+		honbun	本文		text
+		day		日時		DATETIME
